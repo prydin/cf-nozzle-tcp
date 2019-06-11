@@ -1,0 +1,18 @@
+---
+applications:
+  - name: cf-nozzle-tcp
+    command: cf-nozzle-tcp
+    no-route: true
+    health-check-type: process
+    buildpack: https://github.com/cloudfoundry/go-buildpack.git
+    env:
+      GOPACKAGENAME: github.com/prydin/cf-nozzle-tcp
+
+      API_URL: https://api.......
+      CLIENT_ID: admin
+      CLIENT_SECRET: ......
+
+      FIREHOSE_SUBSCRIPTION_ID: firehose-subscription-id
+      SKIP_SSL: true
+      TARGET: ip:port
+
