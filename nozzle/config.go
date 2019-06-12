@@ -7,4 +7,5 @@ type NozzleConfig struct {
 	FirehoseSubscriptionID string `required:"true" envconfig:"firehose_subscription_id"`
 	SkipSSL                bool   `default:"false" envconfig:"skip_ssl"`
 	Target                 string `required:"true" envconfig:"target"`
+	Debug                  bool   `default:"false" envconfig:"debug"`
 }

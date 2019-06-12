@@ -48,9 +48,11 @@ func main() {
 	sender := nozzle.NewTCPSender(nozzleConfig.Target)
 
 	for msg := range msgChan {
-		txt := fmt.Sprintf("origin: %s, job: %s, index: %s, ip: %s, message: %s",
+		txt := fmt.Sprintf("origin: %s, job: %s, index: %s, ip: %s, message: %s\n",
 			*msg.Origin, *msg.Job, *msg.Index, *msg.Ip, string(msg.LogMessage.Message))
-		fmt.Printf("%s \n", txt)
+		if nozzleConfig.Debug {
+			fmt.Print(txt)
+		}
 		sender.Send(txt)
 	}
 }
